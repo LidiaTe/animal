@@ -96,42 +96,49 @@ public class Main {
         System.out.println("Введите цвет животного");
         animal.setColor(scanner.next());
 
+
         System.out.println("Введите возраст животного");
 
-        Integer age = 1;
-        try {
+        Integer age = null;
+        while (age == null){
+            try {
 
-            age = Integer.parseInt(scanner.next());
-        } catch (NumberFormatException e) {
-            System.out.println("Вы ввели неправильный возраст");
-        }
+                age = Integer.parseInt(scanner.next());
+                //        Защита от дурака
+                if (age <= 0 || age > 1000) {
+                    System.out.println("Вы ввели недопустимый возраст");
+                     break;
 
-//        Защита от дурака
-        if (age <= 0 || age > 1000) {
-            System.out.println("Вы ввели неправильный возраст");
+                } else {
+                    animal.setAge(age);
+                }
+//        --------
+            } catch (NumberFormatException e) {
+                System.out.println("Вы ввели неправильный возраст");
+                 break;
+            }
+        } //while
 
-        } else {
-            animal.setAge(age);
-        }
-//        --------------------
+
 
 
         System.out.println("Введите вес животного");
         Integer wieght = 1;
         try {
             wieght = Integer.parseInt(scanner.next());
+            //        Защита от дурака
+            if (wieght <= 0 || wieght > 1000) {
+                System.out.println("Вы ввели недопустимый вес");
+
+            } else {
+
+                animal.setWeight(wieght);
+
+            }
         } catch (NumberFormatException e) {
             System.out.println("Вы ввели неправильный вес");
         }
-        //        Защита от дурака
-        if (wieght <= 0 || wieght > 1000) {
-            System.out.println("Вы ввели неправильный вес");
 
-        } else {
-
-            animal.setWeight(wieght);
-
-        }
 //        --------
 
         return animal;

@@ -63,7 +63,7 @@ public abstract class Animal {
         if (ostatok==1) {
                 return "год";
         }
-        if (ostatok >= 2) {
+        if (ostatok >= 2 || ostatok < 5) {
             return "года";
         }
         if (ostatok >= 5 || getAge()>=11 && getAge()<=14) {
