@@ -99,15 +99,17 @@ public class Main {
 
         System.out.println("Введите возраст животного");
 
-        Integer age = null;
-        while (age == null){
+        Integer age = -1;
+        while (age < 0){
             try {
 
                 age = Integer.parseInt(scanner.next());
                 //        Защита от дурака
                 if (age <= 0 || age > 1000) {
                     System.out.println("Вы ввели недопустимый возраст");
-                     break;
+                    System.out.println("Введите возраст животного");
+                     age = -1;
+                     //break;
 
                 } else {
                     animal.setAge(age);
@@ -115,7 +117,9 @@ public class Main {
 //        --------
             } catch (NumberFormatException e) {
                 System.out.println("Вы ввели неправильный возраст");
-                 break;
+                System.out.println("Введите возраст животного");
+                 age = -1;
+                // break;
             }
         } //while
 
@@ -123,20 +127,27 @@ public class Main {
 
 
         System.out.println("Введите вес животного");
-        Integer wieght = 1;
-        try {
-            wieght = Integer.parseInt(scanner.next());
-            //        Защита от дурака
-            if (wieght <= 0 || wieght > 1000) {
-                System.out.println("Вы ввели недопустимый вес");
 
-            } else {
+        Integer wieght = -1;
+        while (wieght < 0) {
+            try {
+                wieght = Integer.parseInt(scanner.next());
+                //        Защита от дурака
+                if (wieght <= 0 || wieght > 1000) {
+                    System.out.println("Вы ввели недопустимый вес");
+                    System.out.println("Введите вес животного");
+                    wieght = -1;
 
-                animal.setWeight(wieght);
+                } else {
 
+                    animal.setWeight(wieght);
+
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Вы ввели неправильный вес");
+                System.out.println("Введите вес животного");
+                wieght = -1;
             }
-        } catch (NumberFormatException e) {
-            System.out.println("Вы ввели неправильный вес");
         }
 
 //        --------

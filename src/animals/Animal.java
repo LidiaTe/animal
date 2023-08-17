@@ -54,7 +54,7 @@ public abstract class Animal {
     @Override
     public String toString(){
 //        Привет! меня зовут Бобик, мне 5 лет, я вешу - 15 кг, мой цвет - черный
-      return String.format("Привет! меня зовут %s, мне %d %s лет, я вешу - %d кг, мой цвет - %s", getName(), getAge(), getYearPadej(), getWeight(), getColor());
+      return String.format("Привет! меня зовут %s, мне %d %s лет, я вешу  %d кг, мой цвет  %s", getName(), getAge(), getYearPadej(), getWeight(), getColor());
     }
 
 //    Отпределяем падеж для количества лет:
