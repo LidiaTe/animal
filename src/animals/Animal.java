@@ -1,5 +1,7 @@
 package animals;
 
+import org.jetbrains.annotations.NotNull;
+
 public abstract class Animal {
     private String name = "";
     private int age = 0;
@@ -54,23 +56,26 @@ public abstract class Animal {
     @Override
     public String toString(){
 //        Привет! меня зовут Бобик, мне 5 лет, я вешу - 15 кг, мой цвет - черный
-      return String.format("Привет! меня зовут %s, мне %d %s лет, я вешу  %d кг, мой цвет  %s", getName(), getAge(), getYearPadej(), getWeight(), getColor());
+      return String.format("Привет! меня зовут %s, мне %d %s , я вешу  %d кг, мой цвет  %s", getName(), getAge(), getYearPadej(), getWeight(), getColor());
     }
 
 //    Отпределяем падеж для количества лет:
-    private String getYearPadej() {
+    private @NotNull String getYearPadej() {
         int ostatok = getAge() % 10;
+
         if (ostatok==1) {
                 return "год";
         }
-        if (ostatok >= 2 || ostatok < 5) {
+
+        else if (ostatok >= 2 && ostatok <= 4) {
             return "года";
         }
-        if (ostatok >= 5 || getAge()>=11 && getAge()<=14) {
+
+        else if (ostatok >= 5 || getAge()>=11 && getAge()<=14) {
             return "лет";
         }
             return "лет";
-        }
+        } //getYearPadej()
 
 //        методы
         public void say(){
